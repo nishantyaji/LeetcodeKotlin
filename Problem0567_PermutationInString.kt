@@ -21,26 +21,26 @@ private class PermutationInString {
         if (s1.length > s2.length) {
             return false
         }
-        val cntr = mutableMapOf<String, Int>()
-        IntArray(s1.length).mapIndexed { i, _ -> cntr[s1.substring(i, i + 1)] = cntr.getOrDefault(s1.substring(i, i + 1), 0) + 1 }
+        val counter = mutableMapOf<String, Int>()
+        IntArray(s1.length).mapIndexed { i, _ -> counter[s1.substring(i, i + 1)] = counter.getOrDefault(s1.substring(i, i + 1), 0) + 1 }
 
-        val tempCntr = mutableMapOf<String, Int>()
+        val tempCounter = mutableMapOf<String, Int>()
         IntArray(s1.length).mapIndexed { i, _ ->
-            tempCntr[s2.substring(i, i + 1)] = tempCntr.getOrDefault(s2.substring(i, i + 1), 0) + 1
+            tempCounter[s2.substring(i, i + 1)] = tempCounter.getOrDefault(s2.substring(i, i + 1), 0) + 1
         }
 
-        if (counterEquals(cntr, tempCntr)) {
+        if (counterEquals(counter, tempCounter)) {
             return true
         }
 
         for (i in 1 until s2.length - s1.length + 1) {
-            tempCntr[s2.substring(i - 1, i)] = tempCntr.getOrDefault(s2.substring(i - 1, i), 1) - 1
-            if (tempCntr[s2.substring(i - 1, i)] == 0) {
-                tempCntr.remove(s2.substring(i - 1, i))
+            tempCounter[s2.substring(i - 1, i)] = tempCounter.getOrDefault(s2.substring(i - 1, i), 1) - 1
+            if (tempCounter[s2.substring(i - 1, i)] == 0) {
+                tempCounter.remove(s2.substring(i - 1, i))
             }
-            tempCntr[s2.substring(i + s1.length - 1, i + s1.length)] =
-                tempCntr.getOrDefault(s2.substring(i + s1.length - 1, i + s1.length), 0) + 1
-            if (counterEquals(cntr, tempCntr)) {
+            tempCounter[s2.substring(i + s1.length - 1, i + s1.length)] =
+                tempCounter.getOrDefault(s2.substring(i + s1.length - 1, i + s1.length), 0) + 1
+            if (counterEquals(counter, tempCounter)) {
                 return true
             }
         }
