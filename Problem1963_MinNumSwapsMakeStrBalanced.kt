@@ -9,6 +9,7 @@ class MinNumSwapsMakeStrBalanced {
     fun minSwaps(s: String): Int {
         // itertools.accumulate on an array that is -1 if ] or +1 if [. Then take the absolute vale of the min.
         // Take the ceil of its half
+        // scan is same as itertools.accumulate of Py
         return Math.ceil(s.map { c -> if (c == ']') -1 else 1 }.scan(0) { acc, e -> acc + e }.min().absoluteValue.toDouble() / 2).toInt()
     }
 }
