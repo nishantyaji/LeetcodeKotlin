@@ -26,7 +26,7 @@ class DivideIntervalsIntoMinNumGroups {
         for (i in intervals) {
             if (pq.isEmpty() || pq.peek().lastElem >= i[0]) pq.add(GroupInfo(i[1], mutableListOf(i.toList())))
             else {
-                var thisGroup = pq.poll()!!.group
+                val thisGroup = pq.poll()!!.group
                 thisGroup.add(i.toList())
                 pq.add(GroupInfo(i[1], thisGroup))
             }
