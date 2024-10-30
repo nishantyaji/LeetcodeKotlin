@@ -1,11 +1,11 @@
 import kotlin.math.max
 
 fun main() {
-    val p = Problem2501_LongestSquareStreakInArray()
+    val p = LongestSquareStreakInArray()
     println(p.longestSquareStreak(intArrayOf(3, 9, 81, 6561)))
 }
 
-class Problem2501_LongestSquareStreakInArray {
+class LongestSquareStreakInArray {
 
     fun longestSquareStreak(nums: IntArray): Int {
         val arr = nums.map { n -> n.toLong() }.toLongArray()
