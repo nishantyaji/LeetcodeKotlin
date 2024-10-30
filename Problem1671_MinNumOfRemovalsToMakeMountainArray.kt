@@ -1,7 +1,7 @@
 import kotlin.math.max
 
 
-class SegmentTree1671(val size: Int, val defaultValue: Int = 0, val invalidValue: Int = -100001) {
+class SegmentTree1671(val size: Int, val defaultValue: Int = 0, val invalidValue: Int = 0) {
     val st = IntArray(4 * size) { defaultValue }
 
     private fun segOp(left: Int, right: Int): Int {
@@ -48,8 +48,8 @@ class SegmentTree1671(val size: Int, val defaultValue: Int = 0, val invalidValue
             return st[index]
         }
         if (high < lQuery || low > rQuery) {
-            return 0
-            // do not return invalid number
+            return invalidValue
+            // invalid number
         }
 
         val mid: Int = (low + high) / 2
