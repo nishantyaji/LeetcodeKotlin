@@ -7,7 +7,6 @@ fun main() {
 
 class DeleteCharsToMakeFancyString {
     fun makeFancyString(s: String): String {
-//         return s.filterIndexed { index, c -> !(index >= 2 && c == s[index-1] && c == s[index-2]) }.toCharArray().joinToString("")
          return s.filterIndexed { index, c -> !(index >= 2 && c == s[index-1] && c == s[index-2]) }.toCharArray().joinToString("")
     }
 }
