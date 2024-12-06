@@ -7,6 +7,7 @@ fun main() {
 
 class MaxNumOfIntegersToChooseFromRangeI {
     fun maxCount(banned: IntArray, n: Int, maxSum: Int): Int {
-        return (1..n).filter { it !in banned }.scan(0){acc, e -> e + acc}.drop(1).takeWhile { i -> i <= maxSum }.count()
+        val bann = banned.toSet()
+        return (1..n).filter { it !in bann }.scan(0){acc, e -> e + acc}.drop(1).takeWhile { i -> i <= maxSum }.count()
     }
 }
