@@ -9,12 +9,12 @@ class LongestStrictlyIncreasingOrDecreasingSubarray {
 
         for (i in 1 until nums.size) {
             res = if (abs(cumu) > res) abs(cumu) else res
-            if (nums[i] > prev) {
-                cumu = if (cumu <= 0) 2 else cumu + 1
+            cumu = if (nums[i] > prev) {
+                if (cumu <= 0) 2 else cumu + 1
             } else if (nums[i] < prev) {
-                cumu = if (cumu >= 0) -2 else cumu - 1
+                if (cumu >= 0) -2 else cumu - 1
             } else {
-                cumu = 0
+                0
             }
             prev = nums[i]
         }
