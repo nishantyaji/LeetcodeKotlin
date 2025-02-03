@@ -1,4 +1,4 @@
-class Problem1462_CourseScheduleIV {
+class CourseScheduleIV {
     fun checkIfPrerequisite(numCourses: Int, prerequisites: Array<IntArray>, queries: Array<IntArray>): List<Boolean> {
         val res = mutableListOf<Boolean>()
         val dp = Array(numCourses) { Array(numCourses) { false } }
